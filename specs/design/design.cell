@@ -2,8 +2,12 @@ title Hello World Webapp
 
 component hello-webapp as "Hello Webapp" web-application
 
+component hello-api as "Hello API" service
+
 east user-auth as "Thunder Auth" identity-server
 
 north -> hello-webapp
 
+hello-webapp -> hello-api
 hello-webapp -> user-auth
+hello-api -> user-auth

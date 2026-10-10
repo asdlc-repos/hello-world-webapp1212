@@ -22,6 +22,6 @@ See [Product-wide](product-wide.md).
 
 ## Out of Scope
 
-- Any data storage, backend business logic or admin functions.
+- Any data storage or admin functions.
 - Mobile apps.
 

@@ -1,0 +1,21 @@
+{
+  "name": "hello-api",
+  "type": "service",
+  "version": "0.1.0",
+  "language": "Ballerina",
+  "buildpack": "docker",
+  "appPath": "hello-api",
+  "entrypoint": "deployment/service",
+  "exposure": "internet",
+  "dependencies": [
+    {
+      "kind": "platform-resource",
+      "name": "user-auth",
+      "resourceType": "thunder-app",
+      "description": "Shared sign-in client; the gateway validates the caller's token before requests reach this service."
+    }
+  ],
+  "description": "The Ballerina REST service that returns the 'Hello, World!' greeting to any signed-in caller. It exists as its own deployable because the requirements ask for an API behind the web app. It stores no data and has no other operations.",
+  "stories": ["F1.3"],
+  "skillsPinned": ["openapi-conventions", "ballerina", "thunder-authentication", "api-management"]
+}

@@ -14,6 +14,20 @@ Feature: F1 Greeting
       When Vic opens the app
       Then the page does not show "Hello, World!"
 
+  @story-F1.3
+  Rule: The greeting comes from the product's API, for signed-in users only
+
+    Scenario: Signed-in user requests the greeting
+      Given Una the user has signed in
+      When the greeting is requested from the API
+      Then the API answers with the greeting "Hello, World!"
+
+    @negative
+    Scenario: A request without signing in is refused
+      Given Vic the visitor has not signed in
+      When Vic requests the greeting from the API
+      Then no greeting is returned
+
   @story-F1.2
   Rule: A signed-in user can sign out from the greeting page
 
