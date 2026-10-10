@@ -1,0 +1,9 @@
+title Hello World Webapp
+
+component hello-webapp as "Hello Webapp" web-application
+
+east user-auth as "Thunder Auth" identity-server
+
+north -> hello-webapp
+
+hello-webapp -> user-auth
