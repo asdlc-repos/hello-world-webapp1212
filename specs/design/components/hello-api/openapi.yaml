@@ -34,7 +34,7 @@ paths:
   /greeting:
     get:
       operationId: getGreeting
-      summary: The greeting shown to every signed-in user
+      summary: The greeting shown to users holding the User role
       security:
         - oauth2: [greetings:read]
       responses:

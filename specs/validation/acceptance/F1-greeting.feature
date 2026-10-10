@@ -15,7 +15,7 @@ Feature: F1 Greeting
       Then the page does not show "Hello, World!"
 
   @story-F1.3
-  Rule: The greeting comes from the product's API, for signed-in users only
+  Rule: The greeting comes from the product's API, for users holding the User role only
 
     Scenario: Signed-in user requests the greeting
       Given Una the user has signed in
@@ -26,6 +26,12 @@ Feature: F1 Greeting
     Scenario: A request without signing in is refused
       Given Vic the visitor has not signed in
       When Vic requests the greeting from the API
+      Then no greeting is returned
+
+    @negative
+    Scenario: A signed-in person without the User role is refused
+      Given Wes has signed in but does not hold the User role
+      When Wes requests the greeting from the API
       Then no greeting is returned
 
   @story-F1.2
