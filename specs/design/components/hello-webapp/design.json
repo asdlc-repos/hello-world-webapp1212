@@ -7,20 +7,49 @@
   "appPath": "hello-webapp",
   "entrypoint": "deployment/web-application",
   "exposure": "internet",
+  "stories": [
+    "F1.1",
+    "F1.2",
+    "F1.3"
+  ],
+  "description": "The single-page React app, the only user-facing surface: it redirects unauthenticated visitors to SSO sign-in, fetches the greeting from hello-api and shows it, with a sign-out control. It stores no data and has no navigation, because the requirements ask for a single page.",
   "dependencies": [
     {
       "kind": "component",
       "name": "hello-api",
-      "description": "Calls getGreeting to fetch the greeting text it displays."
+      "description": "Calls getGreeting to fetch the greeting text it displays.",
+      "wiring": {
+        "endpoint": {
+          "component": "hello-world-webapp1212-hello-api",
+          "name": "http",
+          "visibility": "project",
+          "envBindings": {
+            "address": "HELLO_API_URL"
+          }
+        }
+      }
     },
     {
       "kind": "platform-resource",
       "name": "user-auth",
+      "description": "Signs the user in through the platform's SSO (OAuth PKCE) before the greeting is shown.",
       "resourceType": "thunder-app",
-      "description": "Signs the user in through the platform's SSO (OAuth PKCE) before the greeting is shown."
+      "wiring": {
+        "ref": "hello-world-webap-4378b9e5",
+        "envBindings": {
+          "client_id": "USER_AUTH_CLIENT_ID",
+          "issuer": "USER_AUTH_ISSUER",
+          "jwks_url": "USER_AUTH_JWKS_URL",
+          "resource": "USER_AUTH_RESOURCE",
+          "scopes": "USER_AUTH_SCOPES"
+        }
+      }
     }
   ],
-  "description": "The single-page React app, the only user-facing surface: it redirects unauthenticated visitors to SSO sign-in, fetches the greeting from hello-api and shows it, with a sign-out control. It stores no data and has no navigation, because the requirements ask for a single page.",
-  "stories": ["F1.1", "F1.2", "F1.3"],
-  "skillsPinned": ["wireframes", "react-webapp", "oxygen-ui-design-system", "thunder-authentication"]
+  "skillsPinned": [
+    "wireframes",
+    "react-webapp",
+    "oxygen-ui-design-system",
+    "thunder-authentication"
+  ]
 }
