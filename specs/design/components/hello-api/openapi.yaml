@@ -12,7 +12,8 @@ components:
         authorizationCode:
           authorizationUrl: /oauth2/authorize
           tokenUrl: /oauth2/token
-          scopes: {}
+          scopes:
+            greetings:read: Read the greeting
   schemas:
     Greeting:
       type: object
@@ -34,6 +35,8 @@ paths:
     get:
       operationId: getGreeting
       summary: The greeting shown to every signed-in user
+      security:
+        - oauth2: [greetings:read]
       responses:
         '200':
           description: The greeting

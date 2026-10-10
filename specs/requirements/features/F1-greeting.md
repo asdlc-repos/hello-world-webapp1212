@@ -12,7 +12,7 @@ Shows a signed-in user a "Hello, World!" greeting page.
 
 ## Decisions
 
-- The API has one operation that returns the greeting text, open to any signed-in user. *assumed*
+- The API has one operation that returns the greeting text, open to any user holding the User role. *assumed*
 - The greeting is the plain text "Hello, World!", the same for every user.
 - The app has a single page; there is no navigation.
 

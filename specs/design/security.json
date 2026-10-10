@@ -1,0 +1,28 @@
+{
+  "version": 3,
+  "permissions": [
+    {
+      "resource": "greetings",
+      "component": "hello-api",
+      "description": "The greeting shown after sign-in",
+      "actions": [
+        { "handle": "read", "description": "Read the greeting" }
+      ]
+    }
+  ],
+  "groups": [
+    { "name": "Greeting Users", "description": "People who may sign in to the Hello World app" }
+  ],
+  "roles": [
+    {
+      "name": "User",
+      "description": "Signs in and sees the greeting; the product's only actor.",
+      "stories": ["F1.1", "F1.2", "F1.3"],
+      "grants": ["greetings:read"],
+      "assignTo": ["Greeting Users"]
+    }
+  ],
+  "testUsers": [
+    { "username": "test-user", "roles": ["User"] }
+  ]
+}
