@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 3,
+  "name": "Hello World",
+  "entryScreen": "screen.greeting",
+  "roles": [{ "id": "User", "name": "User" }],
+  "states": [
+    { "id": "state.default", "name": "Default" },
+    { "id": "state.failed", "name": "Greeting unavailable" }
+  ],
+  "screens": [
+    { "id": "screen.greeting", "name": "Greeting", "roleIds": ["User"] },
+    { "id": "screen.account", "name": "Account", "roleIds": ["User"] },
+    { "id": "screen.settings", "name": "Settings", "roleIds": ["User"] },
+    { "id": "screen.signed-out", "name": "Signed out", "roleIds": ["User"] }
+  ],
+  "flows": [
+    { "id": "flow.greeting", "name": "See the greeting and sign out", "roleId": "User",
+      "screenIds": ["screen.greeting", "screen.signed-out"] }
+  ]
+}
