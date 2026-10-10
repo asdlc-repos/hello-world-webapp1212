@@ -9,3 +9,4 @@ Rules that apply to more than one feature.
 ## Decisions
 
 - The app is a TypeScript + React single-page app. \[org default\]
+
